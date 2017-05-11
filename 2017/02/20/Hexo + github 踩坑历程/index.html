@@ -20,7 +20,7 @@ _config.yml_config.yml要小心配置，此文件有格式的要求。
 墙翻墙是程序员的必备技能，一部分人是使用shadowsocks来翻墙的。这就导致在PAC模式下，可能无法访问到你的github.io域名，开启全局模式即可。
 _config.yml_config.yml要小心配置，此文件有格式的要求。
 每一项">
-<meta property="og:updated_time" content="2017-05-11T12:01:12.871Z">
+<meta property="og:updated_time" content="2017-05-11T13:15:04.681Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo + github 踩坑历程">
 <meta name="twitter:description" content="本来按照别人的教程来搭建个人博客是最省事的方式，但读者水平不同，作者也不可能把所有的细节都写进教程里，所以掉进坑里是难免的。于是写下此文来记录自己的踩的坑。
@@ -187,6 +187,7 @@ _config.yml_config.yml要小心配置，此文件有格式的要求。
 <h2 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h2><p>_config.yml要小心配置，此文件有格式的要求。</p>
 <p>每一项key和value之间要有空格。如下所示：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">avatar: https://avatars2.githubusercontent.com/u/13270717?v=3&amp;s=460</div></pre></td></tr></table></figure>
+<h2 id="hexo-g-d"><a href="#hexo-g-d" class="headerlink" title="hexo g -d"></a>hexo g -d</h2><p>每次将本地的博客部署的github后，到相关库的setting中，并设置它的 custom domain为你的域名。 </p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>别小看这些细节，这些问题我花了一个多小时才解决。其他按照下面的教程做就没有问题了。</p>
 <p><a href="基于 Hexo 的全自动博客构建部署系统">http://kchen.cc/2016/11/12/hexo-instructions/</a></p>
 
@@ -294,7 +295,7 @@ _config.yml_config.yml要小心配置，此文件有格式的要求。
 <nav id="article-nav">
   
   
-    <a href="/2016/11/12/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/02/20/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Hello World</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -397,10 +398,6 @@ _config.yml_config.yml要小心配置，此文件有格式的要求。
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hexo github</a>
-              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
