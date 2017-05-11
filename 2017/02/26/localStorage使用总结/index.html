@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://wangzf.top">
-  <title>Archives: 2017 | Hexo</title>
+  <title>localStorage使用总结 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://wangzf.top/archives/2017/index.html">
+  <meta name="description" content="什么是localStoragelocalStorage主要是用来作为本地存储来使用的，解决了cookie存储空间不足的问题(cookie中每条cookie的存储空间为4k)，localStorage中一般浏览器支持的是5M大小。
+sessionStorage用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionSt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="localStorage使用总结">
+<meta property="og:url" content="http://wangzf.top/2017/02/26/localStorage使用总结/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="什么是localStoragelocalStorage主要是用来作为本地存储来使用的，解决了cookie存储空间不足的问题(cookie中每条cookie的存储空间为4k)，localStorage中一般浏览器支持的是5M大小。
+sessionStorage用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionSt">
+<meta property="og:updated_time" content="2017-05-11T13:59:07.620Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="localStorage使用总结">
+<meta name="twitter:description" content="什么是localStoragelocalStorage主要是用来作为本地存储来使用的，解决了cookie存储空间不足的问题(cookie中每条cookie的存储空间为4k)，localStorage中一般浏览器支持的是5M大小。
+sessionStorage用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionSt">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -149,36 +156,158 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-localStorage使用总结" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/26/localStorage使用总结/" class="archive-article-date">
-  	<time datetime="2017-02-26T13:31:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/26/localStorage使用总结/">localStorage使用总结</a>
+    <h1 class="article-title" itemprop="name">
+      localStorage使用总结
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/02/26/localStorage使用总结/" class="archive-article-date">
+  	<time datetime="2017-02-26T13:31:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是localStorage"><a href="#什么是localStorage" class="headerlink" title="什么是localStorage"></a>什么是localStorage</h2><p>localStorage主要是用来作为本地存储来使用的，解决了cookie存储空间不足的问题(cookie中每条cookie的存储空间为4k)，localStorage中一般浏览器支持的是5M大小。</p>
+<p>sessionStorage用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。</p>
+<h2 id="localStorage的优势与局限"><a href="#localStorage的优势与局限" class="headerlink" title="localStorage的优势与局限"></a>localStorage的优势与局限</h2><h3 id="localStorage的优势"><a href="#localStorage的优势" class="headerlink" title="localStorage的优势"></a>localStorage的优势</h3><ol>
+<li><p>localStorage拓展了cookie的4K限制</p>
+</li>
+<li><p>localStorage会可以将第一次请求的数据直接存储到本地，这个相当于一个5M大小的针对于前端页面的数据库，相比于cookie可以节约带宽(但是这个却是只有在高版本的浏览器中才支持的)。</p>
+</li>
+</ol>
+<h3 id="localStorage的局限"><a href="#localStorage的局限" class="headerlink" title="localStorage的局限"></a>localStorage的局限</h3><ol>
+<li>兼容性（IE8以上）</li>
+<li>目前所有的浏览器中都会把localStorage的值类型限定为string类型，这个在对我们日常比较常见的JSON对象类型需要一些转换。</li>
+<li>localStorage在浏览器的隐私模式下面是不可读取的</li>
+<li>localStorage本质上是对字符串的读取，如果存储内容多的话会消耗内存空间，会导致页面变卡。</li>
+<li>localStorage不能被爬虫抓取到</li>
+</ol>
+<h3 id="localStorage的使用"><a href="#localStorage的使用" class="headerlink" title="localStorage的使用"></a>localStorage的使用</h3><ol>
+<li>首先在使用localStorage的时候，我们需要判断浏览器是否支持localStorage这个属性</li>
+</ol>
+<pre><code>if(！window.localStorage){
+        alert(&quot;浏览器支持localstorage&quot;);
+        return false;
+    }else{
+        //主逻辑业务
+    }
+</code></pre><ol>
+<li>localStorage的写入和读取，localStorage的写入和读取</li>
+<li><p>有三种方法(无论哪一种都要有键值，而不是索引)</p>
+<pre><code>if(！window.localStorage){
+        alert(&quot;浏览器不支持localstorage&quot;);
+        return false;
+    }else{
+        var storage=window.localStorage;
+        //写入a字段
+        storage[&quot;a&quot;]=1;
+        //写入b字段
+        storage.a=1;
+        //写入c字段
+        storage.setItem(&quot;c&quot;,3);
+        console.log(typeof storage[&quot;a&quot;]);
+        console.log(typeof storage[&quot;b&quot;]);
+        console.log(typeof storage[&quot;c&quot;]);
+
+        //第一种方法读取
+        var a=storage.a;
+        console.log(a);
+        //第二种方法读取
+        var b=storage[&quot;b&quot;];
+        console.log(b);
+        //第三种方法读取
+        var c=storage.getItem(&quot;c&quot;);
+        console.log(c);
+    }
+</code></pre><p>打印结果是3个String。刚刚存储进去的是int类型，但是打印出来却是string类型，这个与localStorage本身的特点有关，localStorage只支持string类型的存储。</p>
+</li>
+</ol>
+<p>其中官方推荐的是getItem\setItem这两种方法对其进行存取。</p>
+<pre><code>storage.a=4;//修改
+</code></pre><h3 id="localStorage的删除"><a href="#localStorage的删除" class="headerlink" title="localStorage的删除"></a>localStorage的删除</h3><ol>
+<li><p>将localStorage的所有内容清除</p>
+<pre><code>storage.clear();
+</code></pre></li>
+<li><p>将localStorage中的某个键值对删除</p>
+<pre><code>storage.removeItem(&quot;a&quot;);
+</code></pre></li>
+</ol>
+<h3 id="localStorage的键获取"><a href="#localStorage的键获取" class="headerlink" title="localStorage的键获取"></a>localStorage的键获取</h3><pre><code>var storage=window.localStorage;
+        storage.a=1;
+        storage.setItem(&quot;c&quot;,3);
+        for(var i=0;i&lt;storage.length;i++){
+            var key=storage.key(i);
+            console.log(key);
+        }
+</code></pre><p>使用key()方法，向其中出入索引即可获取对应的键</p>
+<h2 id="localStorage其他注意事项"><a href="#localStorage其他注意事项" class="headerlink" title="localStorage其他注意事项"></a>localStorage其他注意事项</h2><p>一般我们会将JSON存入localStorage中，但是在localStorage会自动将localStorage转换成为字符串形式</p>
+<p>这个时候我们可以使用JSON.stringify()这个方法，来将JSON转换成为JSON字符串</p>
+<pre><code>if(!window.localStorage){
+            alert(&quot;浏览器支持localstorage&quot;);
+        }else{
+            var storage=window.localStorage;
+            var data={
+                name:&apos;xiecanyong&apos;,
+                sex:&apos;man&apos;,
+                hobby:&apos;program&apos;
+            };
+            var d=JSON.stringify(data);
+            storage.setItem(&quot;data&quot;,d);
+            console.log(storage.data);
+        }
+</code></pre><p>读取之后要将JSON字符串转换成为JSON对象，使用JSON.parse()方法</p>
+<pre><code>var storage=window.localStorage;
+        var data={
+            name:&apos;xiecanyong&apos;,
+            sex:&apos;man&apos;,
+            hobby:&apos;program&apos;
+        };
+        var d=JSON.stringify(data);
+        storage.setItem(&quot;data&quot;,d);
+        //将JSON字符串转换成为JSON对象输出
+        var json=storage.getItem(&quot;data&quot;);
+        var jsonObj=JSON.parse(json);
+        console.log(typeof jsonObj);
+</code></pre><p>打印出来是Object对象</p>
+<p>另外还有一点要注意的是，其他类型读取出来也要进行转换。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -190,84 +319,88 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://wangzf.top/2017/02/26/localStorage使用总结/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/20/Hexo + github 踩坑历程/" class="archive-article-date">
-  	<time datetime="2017-02-20T11:46:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-20</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/20/Hexo + github 踩坑历程/">Hexo + github 踩坑历程</a>
-    </h1>
+  
+    <a href="/2017/02/20/Hexo + github 踩坑历程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo + github 踩坑历程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/20/hello-world/" class="archive-article-date">
-  	<time datetime="2017-02-20T04:39:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/20/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -290,8 +423,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
