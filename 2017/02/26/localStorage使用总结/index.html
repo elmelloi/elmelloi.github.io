@@ -16,7 +16,7 @@ sessionStorage用于本地存储一个会话（session）中的数据，这些�
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="什么是localStoragelocalStorage主要是用来作为本地存储来使用的，解决了cookie存储空间不足的问题(cookie中每条cookie的存储空间为4k)，localStorage中一般浏览器支持的是5M大小。
 sessionStorage用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionSt">
-<meta property="og:updated_time" content="2017-05-11T13:59:07.620Z">
+<meta property="og:updated_time" content="2017-05-11T14:13:49.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="localStorage使用总结">
 <meta name="twitter:description" content="什么是localStoragelocalStorage主要是用来作为本地存储来使用的，解决了cookie存储空间不足的问题(cookie中每条cookie的存储空间为4k)，localStorage中一般浏览器支持的是5M大小。
@@ -191,18 +191,17 @@ sessionStorage用于本地存储一个会话（session）中的数据，这些�
 <li>localStorage本质上是对字符串的读取，如果存储内容多的话会消耗内存空间，会导致页面变卡。</li>
 <li>localStorage不能被爬虫抓取到</li>
 </ol>
-<h3 id="localStorage的使用"><a href="#localStorage的使用" class="headerlink" title="localStorage的使用"></a>localStorage的使用</h3><ol>
-<li>首先在使用localStorage的时候，我们需要判断浏览器是否支持localStorage这个属性</li>
-</ol>
-<pre><code>if(！window.localStorage){
-        alert(&quot;浏览器支持localstorage&quot;);
-        return false;
-    }else{
-        //主逻辑业务
-    }
+<h3 id="localStorage的使用"><a href="#localStorage的使用" class="headerlink" title="localStorage的使用"></a>localStorage的使用</h3><h2 id="1-首先在使用localStorage的时候，我们需要判断浏览器是否支持localStorage这个属性"><a href="#1-首先在使用localStorage的时候，我们需要判断浏览器是否支持localStorage这个属性" class="headerlink" title="1. 首先在使用localStorage的时候，我们需要判断浏览器是否支持localStorage这个属性"></a>1. 首先在使用localStorage的时候，我们需要判断浏览器是否支持localStorage这个属性</h2><pre><code>if(！window.localStorage){
+         alert(&quot;浏览器支持localstorage&quot;);
+            return false;
+        }else{
+            //主逻辑业务
+        }
 </code></pre><ol>
 <li>localStorage的写入和读取，localStorage的写入和读取</li>
-<li><p>有三种方法(无论哪一种都要有键值，而不是索引)</p>
+<li>有三种方法(无论哪一种都要有键值，而不是索引)</li>
+</ol>
+<hr>
 <pre><code>if(！window.localStorage){
         alert(&quot;浏览器不支持localstorage&quot;);
         return false;
@@ -229,17 +228,17 @@ sessionStorage用于本地存储一个会话（session）中的数据，这些�
         console.log(c);
     }
 </code></pre><p>打印结果是3个String。刚刚存储进去的是int类型，但是打印出来却是string类型，这个与localStorage本身的特点有关，localStorage只支持string类型的存储。</p>
-</li>
-</ol>
 <p>其中官方推荐的是getItem\setItem这两种方法对其进行存取。</p>
 <pre><code>storage.a=4;//修改
 </code></pre><h3 id="localStorage的删除"><a href="#localStorage的删除" class="headerlink" title="localStorage的删除"></a>localStorage的删除</h3><ol>
 <li><p>将localStorage的所有内容清除</p>
-<pre><code>storage.clear();
-</code></pre></li>
+<p>   <code>storage.clear();</code></p>
+</li>
+</ol>
+<ol>
 <li><p>将localStorage中的某个键值对删除</p>
-<pre><code>storage.removeItem(&quot;a&quot;);
-</code></pre></li>
+<p>   <code>storage.removeItem(&quot;a&quot;);</code></p>
+</li>
 </ol>
 <h3 id="localStorage的键获取"><a href="#localStorage的键获取" class="headerlink" title="localStorage的键获取"></a>localStorage的键获取</h3><pre><code>var storage=window.localStorage;
         storage.a=1;
@@ -383,6 +382,15 @@ sessionStorage用于本地存储一个会话（session）中的数据，这些�
   
 <nav id="article-nav">
   
+    <a href="/2017/03/12/ES6入门-let和const命令/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          ES6入门-let和const命令
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/02/20/Hexo + github 踩坑历程/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Hexo + github 踩坑历程</div>
@@ -489,11 +497,15 @@ sessionStorage用于本地存储一个会话（session）中的数据，这些�
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">es6</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
             
             <div class="clearfix"></div>

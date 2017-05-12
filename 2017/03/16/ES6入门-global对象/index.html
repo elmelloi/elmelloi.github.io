@@ -6,27 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://wangzf.top">
-  <title>Hexo + github 踩坑历程 | Hexo</title>
+  <title>ES6入门-global对象 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本来按照别人的教程来搭建个人博客是最省事的方式，但读者水平不同，作者也不可能把所有的细节都写进教程里，所以掉进坑里是难免的。于是写下此文来记录自己的踩的坑。
-墙翻墙是程序员的必备技能，一部分人是使用shadowsocks来翻墙的。这就导致在PAC模式下，可能无法访问到你的github.io域名，开启全局模式即可。
-_config.yml_config.yml要小心配置，此文件有格式的要求。
-每一项">
+  <meta name="description" content="ES5的顶层对象，本身也是一个问题，因为它在各种实现里面是不统一的。
+浏览器里面，顶层对象是window，但 Node 和 Web Worker 没有window。浏览器和 Web Worker 里面，self也指向顶层对象，但是Node没有self。Node 里面，顶层对象是global，但其他环境都不支持。同一段代码为了能够在各种环境，都能取到顶层对象，现在一般是使用this变量，但是有局限性">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo + github 踩坑历程">
-<meta property="og:url" content="http://wangzf.top/2017/02/20/Hexo + github 踩坑历程/index.html">
+<meta property="og:title" content="ES6入门-global对象">
+<meta property="og:url" content="http://wangzf.top/2017/03/16/ES6入门-global对象/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="本来按照别人的教程来搭建个人博客是最省事的方式，但读者水平不同，作者也不可能把所有的细节都写进教程里，所以掉进坑里是难免的。于是写下此文来记录自己的踩的坑。
-墙翻墙是程序员的必备技能，一部分人是使用shadowsocks来翻墙的。这就导致在PAC模式下，可能无法访问到你的github.io域名，开启全局模式即可。
-_config.yml_config.yml要小心配置，此文件有格式的要求。
-每一项">
-<meta property="og:updated_time" content="2017-05-11T13:58:46.986Z">
+<meta property="og:description" content="ES5的顶层对象，本身也是一个问题，因为它在各种实现里面是不统一的。
+浏览器里面，顶层对象是window，但 Node 和 Web Worker 没有window。浏览器和 Web Worker 里面，self也指向顶层对象，但是Node没有self。Node 里面，顶层对象是global，但其他环境都不支持。同一段代码为了能够在各种环境，都能取到顶层对象，现在一般是使用this变量，但是有局限性">
+<meta property="og:updated_time" content="2017-05-12T04:28:50.707Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo + github 踩坑历程">
-<meta name="twitter:description" content="本来按照别人的教程来搭建个人博客是最省事的方式，但读者水平不同，作者也不可能把所有的细节都写进教程里，所以掉进坑里是难免的。于是写下此文来记录自己的踩的坑。
-墙翻墙是程序员的必备技能，一部分人是使用shadowsocks来翻墙的。这就导致在PAC模式下，可能无法访问到你的github.io域名，开启全局模式即可。
-_config.yml_config.yml要小心配置，此文件有格式的要求。
-每一项">
+<meta name="twitter:title" content="ES6入门-global对象">
+<meta name="twitter:description" content="ES5的顶层对象，本身也是一个问题，因为它在各种实现里面是不统一的。
+浏览器里面，顶层对象是window，但 Node 和 Web Worker 没有window。浏览器和 Web Worker 里面，self也指向顶层对象，但是Node没有self。Node 里面，顶层对象是global，但其他环境都不支持。同一段代码为了能够在各种环境，都能取到顶层对象，现在一般是使用this变量，但是有局限性">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -162,41 +156,63 @@ _config.yml_config.yml要小心配置，此文件有格式的要求。
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Hexo + github 踩坑历程" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-ES6入门-global对象" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo + github 踩坑历程
+      ES6入门-global对象
     </h1>
   
 
         
-        <a href="/2017/02/20/Hexo + github 踩坑历程/" class="archive-article-date">
-  	<time datetime="2017-02-20T11:46:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-20</time>
+        <a href="/2017/03/16/ES6入门-global对象/" class="archive-article-date">
+  	<time datetime="2017-03-16T04:06:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本来按照别人的教程来搭建个人博客是最省事的方式，但读者水平不同，作者也不可能把所有的细节都写进教程里，所以掉进坑里是难免的。于是写下此文来记录自己的踩的坑。</p>
-<h2 id="墙"><a href="#墙" class="headerlink" title="墙"></a>墙</h2><p>翻墙是程序员的必备技能，一部分人是使用shadowsocks来翻墙的。这就导致在PAC模式下，可能无法访问到你的github.io域名，开启全局模式即可。</p>
-<h2 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h2><p>_config.yml要小心配置，此文件有格式的要求。</p>
-<p>每一项key和value之间要有空格。如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">avatar: https://avatars2.githubusercontent.com/u/13270717?v=3&amp;s=460</div></pre></td></tr></table></figure>
-<h2 id="hexo-g-d"><a href="#hexo-g-d" class="headerlink" title="hexo g -d"></a>hexo g -d</h2><p>每次将本地的博客部署的github后，到相关库的setting中，并设置它的 custom domain为你的域名。 </p>
-<h2 id="markdown头部"><a href="#markdown头部" class="headerlink" title="markdown头部"></a>markdown头部</h2><pre><code>---
-title: localStorage使用总结
-date: 2017-02-26 21:31:47
-tags: javascript
+        <p>ES5的顶层对象，本身也是一个问题，因为它在各种实现里面是不统一的。</p>
+<p>浏览器里面，顶层对象是window，但 Node 和 Web Worker 没有window。浏览器和 Web Worker 里面，self也指向顶层对象，但是Node没有self。<br>Node 里面，顶层对象是global，但其他环境都不支持。<br>同一段代码为了能够在各种环境，都能取到顶层对象，现在一般是使用this变量，但是有局限性。</p>
+<p>全局环境中，this会返回顶层对象。但是，Node模块和ES6模块中，this返回的是当前模块。<br>函数里面的this，如果函数不是作为对象的方法运行，而是单纯作为函数运行，this会指向顶层对象。但是，严格模式下，这时this会返回undefined。</p>
+<p>不管是严格模式，还是普通模式，new Function(‘return this’)()，总是会返回全局对象。但是，如果浏览器用了CSP（Content Security Policy，内容安全政策），那么eval、new Function这些方法都可能无法使用。</p>
+<p>综上所述，很难找到一种方法，可以在所有情况下，都取到顶层对象。下面是两种勉强可以使用的方法。</p>
+<pre><code>// 方法一
+(typeof window !== &apos;undefined&apos;
+   ? window
+   : (typeof process === &apos;object&apos; &amp;&amp;
+      typeof require === &apos;function&apos; &amp;&amp;
+      typeof global === &apos;object&apos;)
+     ? global
+     : this);
 
----
-</code></pre><p>注意：key和value之间要有空格。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>别小看这些细节，这些问题我花了一个多小时才解决。其他按照下面的教程做就没有问题了。</p>
-<p><a href="基于 Hexo 的全自动博客构建部署系统">http://kchen.cc/2016/11/12/hexo-instructions/</a></p>
+// 方法二
+var getGlobal = function () {
+  if (typeof self !== &apos;undefined&apos;) { return self; }
+  if (typeof window !== &apos;undefined&apos;) { return window; }
+  if (typeof global !== &apos;undefined&apos;) { return global; }
+  throw new Error(&apos;unable to locate global object&apos;);
+};
+</code></pre><p>现在有一个提案，在语言标准的层面，引入global作为顶层对象。也就是说，在所有环境下，global都是存在的，都可以从它拿到顶层对象。</p>
+<p>垫片库system.global模拟了这个提案，可以在所有环境拿到global。</p>
+<pre><code>// CommonJS的写法
+require(&apos;system.global/shim&apos;)();
+
+// ES6模块的写法
+import shim from &apos;system.global/shim&apos;; shim();
+上面代码可以保证各种环境里面，global对象都是存在的。
+
+// CommonJS的写法
+var global = require(&apos;system.global&apos;)();
+
+// ES6模块的写法
+import getGlobal from &apos;system.global&apos;;
+const global = getGlobal();
+</code></pre><p>上面代码将顶层对象放入变量global。</p>
 
       
 
@@ -231,7 +247,7 @@ tags: javascript
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
         		</li>
       		
 		</ul>
@@ -287,7 +303,7 @@ tags: javascript
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://wangzf.top/2017/02/20/Hexo + github 踩坑历程/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://wangzf.top/2017/03/16/ES6入门-global对象/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -301,18 +317,18 @@ tags: javascript
   
 <nav id="article-nav">
   
-    <a href="/2017/02/26/localStorage使用总结/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/05/07/CSS水平垂直居中的几种方法/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          localStorage使用总结
+          CSS水平垂直居中的几种方法
         
       </div>
     </a>
   
   
-    <a href="/2017/02/20/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2017/03/14/ES6入门-顶级对象属性/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ES6入门-顶级对象的属性</div>
       <i class="icon-circle-right"></i>
     </a>
   
