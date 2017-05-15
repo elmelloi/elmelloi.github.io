@@ -203,7 +203,7 @@
 </ol>
 <p>浏览器兼容性：</p>
 <p>Chrome,Firefox, Safari, IE8-10.</p>
-<h2 id="脱离文档流元素的居中"><a href="#脱离文档流元素的居中" class="headerlink" title="脱离文档流元素的居中"></a>脱离文档流元素的居中</h2><h3 id="容器container内的居中"><a href="#容器container内的居中" class="headerlink" title="容器container内的居中"></a>容器container内的居中</h3><pre><code>.Center-Container {  
+<h2 id="脱离文档流元素的居中"><a href="#脱离文档流元素的居中" class="headerlink" title="脱离文档流元素的居中"></a>脱离文档流元素的居中</h2><h3 id="容器container内的居中（适合高度，宽度已知的情况）"><a href="#容器container内的居中（适合高度，宽度已知的情况）" class="headerlink" title="容器container内的居中（适合高度，宽度已知的情况）"></a>容器container内的居中（适合高度，宽度已知的情况）</h3><pre><code>.Center-Container {  
   position: relative;  
 }  
 
@@ -221,7 +221,7 @@
   position: fixed;  
   z-index: 999;  
 } 
-</code></pre><h3 id="绝对定位和负边距"><a href="#绝对定位和负边距" class="headerlink" title="绝对定位和负边距"></a>绝对定位和负边距</h3><pre><code>.box3{position:relative;}
+</code></pre><h3 id="绝对定位和负边距（适合高度，宽度已知的情况）"><a href="#绝对定位和负边距（适合高度，宽度已知的情况）" class="headerlink" title="绝对定位和负边距（适合高度，宽度已知的情况）"></a>绝对定位和负边距（适合高度，宽度已知的情况）</h3><pre><code>.box3{position:relative;}
 .box3 span{
         position: absolute;
         width:100px;
@@ -233,7 +233,7 @@
         text-align: center;
     }
 </code></pre><p>我们首先用top:50%和left:50%让span的坐标原点（左上角）移动到container的中心，然后再利用负margin让它往左偏移自身宽的一半，再往上偏移自身高的一半，这样span的中心点就跟div的中心点对齐了。</p>
-<h2 id="未脱离文档流元素的居中"><a href="#未脱离文档流元素的居中" class="headerlink" title="未脱离文档流元素的居中"></a>未脱离文档流元素的居中</h2><h3 id="table-cell"><a href="#table-cell" class="headerlink" title="table-cell"></a>table-cell</h3><p>html结构：</p>
+<h2 id="未脱离文档流元素的居中"><a href="#未脱离文档流元素的居中" class="headerlink" title="未脱离文档流元素的居中"></a>未脱离文档流元素的居中</h2><h3 id="table-cell（适合高度宽度未知的情况）"><a href="#table-cell（适合高度宽度未知的情况）" class="headerlink" title="table-cell（适合高度宽度未知的情况）"></a>table-cell（适合高度宽度未知的情况）</h3><p>html结构：</p>
 <pre><code>&lt;div class=&quot;box box1&quot;&gt;
         &lt;span&gt;垂直居中&lt;/span&gt;
 &lt;/div&gt;
@@ -249,7 +249,7 @@
     justify-content:center;
     align-items:Center;
 }
-</code></pre><h3 id="translate"><a href="#translate" class="headerlink" title="translate"></a>translate</h3><pre><code>.box6 span{
+</code></pre><h3 id="translate（适合高度宽度未知的情况）"><a href="#translate（适合高度宽度未知的情况）" class="headerlink" title="translate（适合高度宽度未知的情况）"></a>translate（适合高度宽度未知的情况）</h3><pre><code>.box6 span{
         position: absolute;
         top:50%;
         left:50%;
@@ -257,7 +257,7 @@
         transform:translate(-50%,-50%);
         text-align: center;
     }
-</code></pre><h3 id="display-inline-block"><a href="#display-inline-block" class="headerlink" title="display:inline-block"></a>display:inline-block</h3><pre><code>.box7{
+</code></pre><h3 id="display-inline-block（未知宽度高度）"><a href="#display-inline-block（未知宽度高度）" class="headerlink" title="display:inline-block（未知宽度高度）"></a>display:inline-block（未知宽度高度）</h3><pre><code>.box7{
   text-align:center;
   font-size:0;
 }

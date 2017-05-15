@@ -1,0 +1,77 @@
+span.descColumnTitle{
+    font-size:16px; 
+    color:#646464;
+    font-weight: bold;
+ 
+}
+
+div.footer{
+    margin: 5px 0px;
+    border-top:1px solid #e7e7e7;
+}
+
+div.footer_desc a{
+    display: block;
+    padding-top: 3px;
+}
+
+div.footer_ensure{
+    margin:24px 0px 24px 0px;
+    text-align: center; 
+}
+
+div.footer_desc{
+    border-top:1px solid #e7e7e7;
+    padding-top: 30px;
+    margin:  0px 20px;
+}
+
+div.descColumn{
+    width: 20%;
+    float: left;
+    padding-left: 50px;
+}
+
+div.copyright{
+    background-color: black;
+    border-top: 2px solid #c40000;
+}
+
+
+img.cateye{
+    margin-left: 20px;
+}
+
+div.copyright span.slash{
+    color: white;
+}
+
+div.copyright div.license{
+    color: white;
+    padding: 0px 5px;
+}
+
+div.license{
+    margin-left: 10px;
+    padding-bottom: 30px;
+}
+
+div.license span{
+    color: #a4a4a4;
+}
+
+div.license div.copyRightYear{
+    margin: 10px 0px;
+    color: #686868;
+}
+
+
+div.footer div.copyright div.white_link a{
+    color: white;
+    padding: 0px 5px;
+}
+
+div.footer div.copyright div.white_link{
+    padding: 10px 0px;
+    margin-left: 10px;
+}

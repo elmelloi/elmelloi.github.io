@@ -1,0 +1,49 @@
+div.simpleSearchDiv{
+    background-color: #c40000;
+    margin: 10px 20px 40px;
+    padding: 1px;
+    width: 300px;
+    display:block;
+    height: 40px;
+}
+
+
+
+div.simpleSearchDiv input{
+    margin: 2px;
+    height: 34px;
+    border: 1px solid transparent;
+    outline: none;
+    width: 225px;
+}
+
+div.simpleSearchDiv button{
+    background-color: #c40000;
+    width: 60px;
+    border: 1px solid transparent;
+    color: white;
+    font-size: 14px;
+}
+
+div.searchBelow{
+    margin-top: 3px;
+    margin-left: -20px;
+}
+
+div.searchBelow span{
+    color: #999;
+}
+
+div.searchBelow a{
+padding: 0px 20px;
+font-size: 14px;
+}
+
+
+
+img.simplelogo{
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    width: 140px;
+}
